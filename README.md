@@ -29,7 +29,7 @@
 | house_number       | string     | null: false                    |
 | building_name      | string     |                                |
 | phone_number       | integer    | unique: true                   |
-| user               | references | null: false, foreign_key: true |
+
 
 ### Association
 
@@ -47,7 +47,6 @@
 | prefecture_id  | integer    | null: false                    |
 | prepare_day_id | integer    | null: false                    |
 | category_id    | integer    | null: false                    |
-| seller         | string     | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### Association
