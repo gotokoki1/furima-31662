@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_one :item_user
+- has_many :item_users
 - has_many :items
 - has_many :comments
 
@@ -28,7 +28,8 @@
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building_name      | string     |                                |
-| phone_number       | string     | null: false                   |
+| phone_number       | string     | null: false                    |
+| item_users         | references | null: false, foreign_key: true |
 
 
 ### Association
