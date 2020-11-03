@@ -15,26 +15,25 @@
 
 ### Association
 
-- has_many :item_users
-- has_many :items, through: item_users
+- has_one :item_user
+- has_many :items
 - has_many :comments
-- has_one :delivery_address
 
 ## delivery_addresses テーブル
 
 | Column             | Type       | Option                         |
 | ------------------ | ---------- | ------------------------------ |
-| post_code          | integer    | null: false                    |
+| post_code          | string     | null: false                    |
 | prefecture_code_id | integer    | null: false                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
-| building_name      | string     | null: false                    |
+| building_name      | string     |                                |
 | phone_number       | integer    | unique: true                   |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :user
+- has_one :item_user
 
 ## items テーブル
 
@@ -47,15 +46,14 @@
 | postage_id     | integer    | null: false                    |
 | prefecture_id  | integer    | null: false                    |
 | prepare_day_id | integer    | null: false                    |
-| category_id    | references | null: false                    |
-| seller         | references | null: false                    |
+| category_id    | integer    | null: false                    |
+| seller         | string     | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :item_users
-- has_many :users, through: item_users
-- has_many :categories
+- has_one :item_user
+- belongs_to :users
 - has_many :comments
 
 ## item_users テーブル
@@ -67,18 +65,9 @@
 
 ### Association
 
-- belongs_to :item
-- belongs_to :user
-
-## categories テーブル
-
-| Column | Type   | Option      |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-
-### Association
-
-- belongs_to :item
+- has_one :item
+- has_one :user
+- has_one :delivery_address
 
 ## comments テーブル
 
