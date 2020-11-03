@@ -28,7 +28,7 @@
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building_name      | string     |                                |
-| phone_number       | integer    | unique: true                   |
+| phone_number       | string     | null: false                   |
 
 
 ### Association
@@ -52,7 +52,7 @@
 ### Association
 
 - has_one :item_user
-- belongs_to :users
+- belongs_to :user
 - has_many :comments
 
 ## item_users テーブル
@@ -64,8 +64,8 @@
 
 ### Association
 
-- has_one :item
-- has_one :user
+- belongs :item
+- belongs :user
 - has_one :delivery_address
 
 ## comments テーブル
