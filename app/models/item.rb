@@ -1,10 +1,10 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category_id
-  belongs_to :condition_id
-  belongs_to :postage_id
-  belongs_to :prefecture_id
-  belongs_to :prepareday_id
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :postage
+  has_many :prefectures
+  has_many :prepareday
   belongs_to :user
   has_one_attached :image
 
