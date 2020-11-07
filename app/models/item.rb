@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :postage
-  has_many :prefectures
-  has_many :prepareday
+  belongs_to :prefecture
+  belongs_to :prepare_day
   belongs_to :user
   has_one_attached :image
 
