@@ -4,6 +4,9 @@ class Order
   attr_accessor :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :item_user, :item_id, :user_id, :token
 
   validates :prefecture_id, numericality: { other_than: 1 }
+  validates :post_code, format: {with: /\A\d{3}[-]\d{4}\z/}
+  validates :phone_number, format: {with: /\A\d{11}\z/}
+  
 
   with_options presence: true do
     validates :post_code

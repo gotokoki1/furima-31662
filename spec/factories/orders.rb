@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :order do
-    post_code { 418-0022 }
+    post_code { "418-0022" }
     prefecture_id { 2 }
     city { "富士宮市" }
     house_number { "小泉566-18" }
