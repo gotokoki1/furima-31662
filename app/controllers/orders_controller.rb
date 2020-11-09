@@ -6,11 +6,9 @@ class OrdersController < ApplicationController
 
   def index
     @order = Order.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order = Order.new(order_params)
     if @order.valid?
       pay_item
@@ -47,7 +45,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_top
-    if @item.user_id.present?
+    if @item.item_user.present?
      redirect_to root_path
     end
   end
