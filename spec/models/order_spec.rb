@@ -47,7 +47,7 @@ RSpec.describe Order, type: :model do
 
   it "建物名が空でも登録できること" do
     @order.building_name = ""
-    @order.valid?
+    expect(@order).to be_valid
   end
 
   it "電話番号が空では登録できないこと" do
@@ -61,4 +61,11 @@ RSpec.describe Order, type: :model do
     @order.valid?
     expect(@order.errors.full_messages).to include("Phone number is invalid")
   end
+
+  it "電話番号に-があると保存できないこと" do
+    @order.phone_number = '000-0000-0000'
+    @order.valid?
+    expect(@order.errors.full_messages).to include("Phone number is invalid")
+  end
+
 end
